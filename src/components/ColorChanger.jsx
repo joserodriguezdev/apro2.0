@@ -32,7 +32,7 @@ function CambiarFondo() {
     console.log("Mensaje mostrado:", equipoElegido);
   };
 
-  // 🔹 JSX con los 3 ejercicios
+  //  JSX con los 3 ejercicios
   return (
     <div
       style={{
@@ -43,6 +43,25 @@ function CambiarFondo() {
         transition: "background-color 0.3s ease",
       }}
     >
+      {/* Ejercicio 4: cambiar fondo con un SELECT */}
+      <div style={{ marginBottom: "1rem" }}>
+        <label style={{ marginRight: "1rem", fontWeight: "bold" }}>
+          Elegí un color de fondo:
+        </label>
+        <select
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+          style={{ padding: "0.5rem", fontSize: "1rem" }}
+        >
+          <option value="white">Blanco</option>
+          <option value="red">Rojo</option>
+          <option value="green">Verde</option>
+          <option value="blue">Azul</option>
+          <option value="black">Negro</option>
+          <option value="yellow">Amarillo</option>
+        </select>
+      </div>
+
       <button
         onClick={cambiarColor}
         style={{ padding: "1rem 2rem", margin: "1rem" }}
