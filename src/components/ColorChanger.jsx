@@ -74,6 +74,10 @@ function CambiarFondo() {
         <p style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
           <strong>{texto}</strong>
         </p>
+        {/*  Botón para limpiar el texto */}
+        <button onClick={() => setTexto("")} style={{ marginTop: "1rem" }}>
+          Limpiar
+        </button>
       </div>
     </div>
   );
