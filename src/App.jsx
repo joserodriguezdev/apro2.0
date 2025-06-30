@@ -4,7 +4,7 @@ import ColorChanger from "./components/ColorChanger";
 function App() {
   return (
     <div style={{ padding: "2rem" }}>
-      <h1 className="titulo-ejercicio">Ejercicio 1 - Cambiar Color de Fondo</h1>
+      <h1 className="titulo-ejercicio">ejercicios</h1>
       <ColorChanger />
     </div>
   );
