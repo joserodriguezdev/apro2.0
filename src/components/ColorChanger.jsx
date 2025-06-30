@@ -10,6 +10,10 @@ function CambiarFondo() {
     setContador(contador + 1);
   };
 
+  const resetearContador = () => {
+    setContador(0);
+  };
+
   const cambiarColor = () => {
     const colores = ["blue", "green", "red", "black"];
     const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
@@ -17,7 +21,14 @@ function CambiarFondo() {
   };
 
   const mostrarMensaje = () => {
-    const equipos = ["Boca", "River", "Racing", "Independiente", "San Lorenzo", "Central"];
+    const equipos = [
+      "Boca",
+      "River",
+      "Racing",
+      "Independiente",
+      "San Lorenzo",
+      "Central",
+    ];
     const equipoElegido = equipos[Math.floor(Math.random() * equipos.length)];
     setMensaje(`El mejor equipo de Argentina es... ${equipoElegido}`);
   };
@@ -66,7 +77,9 @@ function CambiarFondo() {
       </button>
 
       {mensaje && (
-        <p style={{ marginTop: "2rem", fontSize: "1.2rem", fontWeight: "bold" }}>
+        <p
+          style={{ marginTop: "2rem", fontSize: "1.2rem", fontWeight: "bold" }}
+        >
           {mensaje}
         </p>
       )}
@@ -90,11 +103,18 @@ function CambiarFondo() {
 
       {/* Ejercicio 5: contador de clics */}
       <div style={{ marginTop: "2rem" }}>
-        <button onClick={contarClicks} style={{ padding: "1rem 2rem" }}>
+        <button
+          onClick={contarClicks}
+          style={{ padding: "1rem 2rem", marginRight: "1rem" }}
+        >
           ¡Click!
         </button>
+        <button onClick={resetearContador} style={{ padding: "1rem 2rem" }}>
+          Reiniciar contador
+        </button>
         <p style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
-          Hiciste click <strong>{contador}</strong> {contador === 1 ? "vez" : "veces"}.
+          Hiciste click <strong>{contador}</strong>{" "}
+          {contador === 1 ? "vez" : "veces"}.
         </p>
       </div>
     </div>
