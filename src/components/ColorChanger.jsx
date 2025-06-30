@@ -1,49 +1,39 @@
 import React, { useState } from "react";
 
 function CambiarFondo() {
-  // Estado para el color de fondo (Ejercicio 1)
   const [color, setColor] = useState("white");
-
-  // Estado para el mensaje (Ejercicio 2)
   const [mensaje, setMensaje] = useState("");
-
-  // Estado para el texto del input (Ejercicio 3)
   const [texto, setTexto] = useState("");
+  const [contador, setContador] = useState(0);
 
-  // Función para cambiar el color (Ejercicio 1)
+  const contarClicks = () => {
+    setContador(contador + 1);
+  };
+
   const cambiarColor = () => {
     const colores = ["blue", "green", "red", "black"];
     const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
     setColor(colorAleatorio);
   };
 
-  // Función para mostrar mensaje aleatorio (Ejercicio 2)
   const mostrarMensaje = () => {
-    const equipos = [
-      "Boca",
-      "River",
-      "Racing",
-      "Independiente",
-      "San Lorenzo",
-      "Central",
-    ];
+    const equipos = ["Boca", "River", "Racing", "Independiente", "San Lorenzo", "Central"];
     const equipoElegido = equipos[Math.floor(Math.random() * equipos.length)];
     setMensaje(`El mejor equipo de Argentina es... ${equipoElegido}`);
-    console.log("Mensaje mostrado:", equipoElegido);
   };
 
-  //  JSX con los 3 ejercicios
   return (
     <div
       style={{
         backgroundColor: color,
         height: "100vh",
         textAlign: "center",
-        paddingTop: "10vh",
+        paddingTop: "5vh",
         transition: "background-color 0.3s ease",
+        padding: "2rem",
       }}
     >
-      {/* Ejercicio 4: cambiar fondo con un SELECT */}
+      {/* Ejercicio 4: cambiar fondo con select */}
       <div style={{ marginBottom: "1rem" }}>
         <label style={{ marginRight: "1rem", fontWeight: "bold" }}>
           Elegí un color de fondo:
@@ -62,6 +52,7 @@ function CambiarFondo() {
         </select>
       </div>
 
+      {/* Ejercicio 1: cambiar fondo aleatorio */}
       <button
         onClick={cambiarColor}
         style={{ padding: "1rem 2rem", margin: "1rem" }}
@@ -69,19 +60,18 @@ function CambiarFondo() {
         Cambiar Fondo
       </button>
 
+      {/* Ejercicio 2: mostrar mensaje aleatorio */}
       <button onClick={mostrarMensaje} style={{ padding: "1rem 2rem" }}>
         Mostrar mensaje
       </button>
 
       {mensaje && (
-        <p
-          style={{ marginTop: "2rem", fontSize: "1.2rem", fontWeight: "bold" }}
-        >
+        <p style={{ marginTop: "2rem", fontSize: "1.2rem", fontWeight: "bold" }}>
           {mensaje}
         </p>
       )}
 
-      {/*  Erjecicio 3 */}
+      {/* Ejercicio 3 */}
       <div style={{ marginTop: "2rem" }}>
         <input
           type="text"
@@ -93,10 +83,19 @@ function CambiarFondo() {
         <p style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
           <strong>{texto}</strong>
         </p>
-        {/*  Botón para limpiar el texto */}
         <button onClick={() => setTexto("")} style={{ marginTop: "1rem" }}>
           Limpiar
         </button>
+      </div>
+
+      {/* Ejercicio 5: contador de clics */}
+      <div style={{ marginTop: "2rem" }}>
+        <button onClick={contarClicks} style={{ padding: "1rem 2rem" }}>
+          ¡Click!
+        </button>
+        <p style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
+          Hiciste click <strong>{contador}</strong> {contador === 1 ? "vez" : "veces"}.
+        </p>
       </div>
     </div>
   );
